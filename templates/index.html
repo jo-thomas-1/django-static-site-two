@@ -30,11 +30,16 @@
 							<div class="logo"><a href="index.html">Travello</a></div>
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
-									<li><a href="index.html">Home</a></li>
-									<li class="active"><a href="about.html">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="news.html">News</a></li>
+									<li class="active"><a href="/">Home</a></li>
+									<li><a href="about.html">About us</a></li>
 									<li><a href="contact.html">Contact</a></li>
+									{% if user.is_authenticated %}
+										<li><a href="/">Hello {{ user.username }}</a></li>
+										<li><a href="/account/logout/">Logout</a></li>
+									{% else %}
+										<li><a href="/account/register/">Register</a></li>
+										<li><a href="/account/login/">Login</a></li>
+									{% endif %}
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
@@ -71,11 +76,18 @@
 		</div>
 		<div class="menu_content">
 			<ul>
-				<li><a href="inex.html">Home</a></li>
+				<li><a href="index.html">Home</a></li>
 				<li><a href="about.html">About us</a></li>
 				<li><a href="#">Services</a></li>
 				<li><a href="news.html">News</a></li>
 				<li><a href="contact.html">Contact</a></li>
+				{% if user.is_authenticated %}
+					<li>Hello {{ user.username }}</li>
+					<li><a href="/account/logout/">Logout</a></li>
+				{% else %}
+					<li><a href="/account/register/">Register</a></li>
+					<li><a href="/account/login/">Login</a></li>
+				{% endif %}
 			</ul>
 		</div>
 		<div class="menu_social">
